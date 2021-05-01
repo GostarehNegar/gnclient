@@ -2,18 +2,18 @@
 import { HubConnectionBuilder, HttpTransportType, LogLevel } from '@microsoft/signalr'
 let connection = new HubConnectionBuilder()
   .configureLogging(LogLevel.Trace)
-  .withUrl("http://172.16.6.158/:80/chathub", {
-    skipNegotiation: false,
+  .withUrl("http://172.16.6.158/chathub", {
+    skipNegotiation: true,
     transport: HttpTransportType.WebSockets
   })
   .build();
 class GnClient {
-  public connect(url: string): string {
-    connection.start()
-      .then(() => connection.invoke("send", "Hello"))
-      .catch(err => {
-        console.log(err)
-      })
+  public async connect(url: string) {
+    await connection.start()
+    .then(()=>{connection.invoke('signIn', {
+      userName : 'paria',
+      passWord : "uggk"
+    })})
     return url;
   }
 }
