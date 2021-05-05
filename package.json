@@ -24,6 +24,10 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "@microsoft/signalr": "^5.0.5"
+    "@microsoft/signalr": "^5.0.5",
+    "vue": "^2.6.12",
+    "vuex": "^3.6.2",
+    "vuex-module-decorators": "^1.0.1",
+    "vuex-persist": "^3.1.3"
   }
 }
